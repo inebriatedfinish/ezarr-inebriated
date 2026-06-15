@@ -235,37 +235,18 @@ class ContainerConfig:
             '    restart: unless-stopped\n\n'
         )
 
-    def overseerr(self):
+    def seerr(self):
         return (
-            '  overseerr:\n'
-            '    image: sctx/overseerr:latest\n'
+            '  seerr:\n'
+            '    image: ghcr.io/seerr-team/seerr:latest\n'
             '    container_name: overseerr\n'
             '    environment:\n'
-            '      - PUID=13009\n'
-            '      - PGID=13000\n'
-            '      - UMASK=002\n'
-            f'      - TZ={self.timezone}\n'
+            f'     - TZ={self.timezone}\n'
+            '      - LOG_LEVEL=debug\n'
             '    volumes:\n'
-            f'      - {self.config_dir}/overseerr-config:/app/config\n'
+            f'     - {self.config_dir}/seerr-config:/app/config\n'
             '    ports:\n'
             '      - "5055:5055"\n'
-            '    restart: unless-stopped\n\n'
-        )
-    
-    def jellyseerr(self):
-        return (
-            '  jellyseerr:\n'
-            '    image: fallenbagel/jellyseerr:latest\n'
-            '    container_name: jellyseerr\n'
-            '    environment:\n'
-            '      - PUID=13012\n'
-            '      - PGID=13000\n'
-            '      - UMASK=002\n'
-            f'      - TZ={self.timezone}\n'
-            '    volumes:\n'
-            f'      - {self.config_dir}/jellyseerr-config:/app/config\n'
-            '    ports:\n'
-            '      - "5056:5055"\n'
             '    restart: unless-stopped\n\n'
         )
 
@@ -286,7 +267,7 @@ class ContainerConfig:
             '      - "8081:8080"\n'
             '    restart: unless-stopped\n\n'
         )
-    
+
     def jackett(self):
         return (
             '  jackett:\n'
@@ -303,7 +284,7 @@ class ContainerConfig:
             '      - 9117:9117\n'
             '    restart: unless-stopped\n\n'
         )
-    
+
     def flaresolverr(self):
         return (
             '  flaresolverr:\n'
@@ -318,4 +299,3 @@ class ContainerConfig:
             '      - "8191:8191"\n'
             '    restart: unless-stopped\n\n'
         )
-        
