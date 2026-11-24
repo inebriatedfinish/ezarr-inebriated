@@ -50,7 +50,7 @@ sudo mkdir -pv ${DATA_DIR}/data/{torrents,usenet,media}/{tv,movies,music,books,c
 
 # Set permissions
 sudo chmod -R 775 ${DATA_DIR}/data/
-sudo chmod -R 775 ${CONFIG_DIR:-.}/config/
+sudo chmod -R 775 ${CONFIG_DIR}/config/
 sudo chown -R $UID:mediacenter ${DATA_DIR}/data/
 sudo chown -R $UID:mediacenter ${CONFIG_DIR}/config/
 sudo chown -R sonarr:mediacenter ${CONFIG_DIR}/config/sonarr-config
