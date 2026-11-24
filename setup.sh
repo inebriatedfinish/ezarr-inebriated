@@ -45,14 +45,13 @@ sudo usermod -a -G mediacenter audiobookshelf
 sudo usermod -a -G mediacenter sportarr
 
 # Make directories
-# ${ROOT_DIR:-.}/ means take the value from ROOT_DIR value, if failed or empty place it in the current folder
 sudo mkdir -pv ${CONFIG_DIR}/config/{sonarr,radarr,lidarr,mylar,prowlarr,qbittorrent,jackett,audiobookshelf,seerr,plex,jellyfin,tautulli,sabnzbd,bazarr,sportarr}-config
-sudo mkdir -pv ${ROOT_DIR}/data/{torrents,usenet,media}/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,sports}
+sudo mkdir -pv ${DATA_DIR}/data/{torrents,usenet,media}/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,sports}
 
 # Set permissions
-sudo chmod -R 775 ${ROOT_DIR}/data/
+sudo chmod -R 775 ${DATA_DIR}/data/
 sudo chmod -R 775 ${CONFIG_DIR:-.}/config/
-sudo chown -R $UID:mediacenter ${ROOT_DIR}/data/
+sudo chown -R $UID:mediacenter ${DATA_DIR}/data/
 sudo chown -R $UID:mediacenter ${CONFIG_DIR}/config/
 sudo chown -R sonarr:mediacenter ${CONFIG_DIR}/config/sonarr-config
 sudo chown -R radarr:mediacenter ${CONFIG_DIR}/config/radarr-config
