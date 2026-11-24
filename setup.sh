@@ -46,31 +46,30 @@ sudo usermod -a -G mediacenter sportarr
 
 # Make directories
 # ${ROOT_DIR:-.}/ means take the value from ROOT_DIR value, if failed or empty place it in the current folder
-sudo mkdir -pv ${ROOT_DIR:-.}/config/{sonarr,radarr,lidarr,mylar,prowlarr,qbittorrent,jackett,audiobookshelf,seerr,plex,jellyfin,tautulli,sabnzbd,bazarr,sportarr}-config
-sudo mkdir -pv ${ROOT_DIR:-.}/data/{torrents,usenet,media}/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,sports}
+sudo mkdir -pv ${CONFIG_DIR}/config/{sonarr,radarr,lidarr,mylar,prowlarr,qbittorrent,jackett,audiobookshelf,seerr,plex,jellyfin,tautulli,sabnzbd,bazarr,sportarr}-config
+sudo mkdir -pv ${ROOT_DIR}/data/{torrents,usenet,media}/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,sports}
 
 # Set permissions
-sudo chmod -R 775 ${ROOT_DIR:-.}/data/
-sudo chmod -R 775 ${ROOT_DIR:-.}/config/
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/data/
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/config/
-sudo chown -R sonarr:mediacenter ${ROOT_DIR:-.}/config/sonarr-config
-sudo chown -R radarr:mediacenter ${ROOT_DIR:-.}/config/radarr-config
-sudo chown -R lidarr:mediacenter ${ROOT_DIR:-.}/config/lidarr-config
-sudo chown -R mylar:mediacenter ${ROOT_DIR:-.}/config/mylar-config
-sudo chown -R prowlarr:mediacenter ${ROOT_DIR:-.}/config/prowlarr-config
-sudo chown -R qbittorrent:mediacenter ${ROOT_DIR:-.}/config/qbittorrent-config
-sudo chown -R jackett:mediacenter ${ROOT_DIR:-.}/config/jackett-config
-
+sudo chmod -R 775 ${ROOT_DIR}/data/
+sudo chmod -R 775 ${CONFIG_DIR:-.}/config/
+sudo chown -R $UID:mediacenter ${ROOT_DIR}/data/
+sudo chown -R $UID:mediacenter ${CONFIG_DIR}/config/
+sudo chown -R sonarr:mediacenter ${CONFIG_DIR}/config/sonarr-config
+sudo chown -R radarr:mediacenter ${CONFIG_DIR}/config/radarr-config
+sudo chown -R lidarr:mediacenter ${CONFIG_DIR}/config/lidarr-config
+sudo chown -R mylar:mediacenter ${CONFIG_DIR}/config/mylar-config
+sudo chown -R prowlarr:mediacenter ${CONFIG_DIR}/config/prowlarr-config
+sudo chown -R qbittorrent:mediacenter ${CONFIG_DIR}/config/qbittorrent-config
+sudo chown -R jackett:mediacenter ${CONFIG_DIR}/config/jackett-config
 # The Seerr container uses 1000:1000
 # See https://docs.seerr.dev/migration-guide/?kubernetes-values=old#config-folder-permissions
-sudo chown -R $UID:$GID ${ROOT_DIR:-.}/config/seerr-config
-sudo chown -R plex:mediacenter ${ROOT_DIR:-.}/config/plex-config
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/config/jellyfin-config
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/config/tautulli-config
-sudo chown -R sabnzbd:mediacenter ${ROOT_DIR:-.}/config/sabnzbd-config
-sudo chown -R bazarr:mediacenter ${ROOT_DIR:-.}/config/bazarr-config
-sudo chown -R audiobookshelf:mediacenter ${ROOT_DIR:-.}/config/audiobookshelf-config
-sudo chown -R sportarr:mediacenter ${ROOT_DIR:-.}/config/sportarr-config
+sudo chown -R $UID:$GID ${CONFIG_DIR}/config/seerr-config
+sudo chown -R plex:mediacenter ${CONFIG_DIR}/config/plex-config
+sudo chown -R $UID:mediacenter ${CONFIG_DIR}/config/jellyfin-config
+sudo chown -R $UID:mediacenter ${CONFIG_DIR}/config/tautulli-config
+sudo chown -R sabnzbd:mediacenter ${CONFIG_DIR}/config/sabnzbd-config
+sudo chown -R bazarr:mediacenter ${CONFIG_DIR}/config/bazarr-config
+sudo chown -R audiobookshelf:mediacenter ${CONFIG_DIR}/config/audiobookshelf-config
+sudo chown -R sportarr:mediacenter ${CONFIG_DIR}/config/sportarr-config
 
 echo "Done! It is recommended to reboot now."
